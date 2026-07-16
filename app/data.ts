@@ -212,7 +212,7 @@ export const worksFor = (id: string) =>
   WORKS.filter((work) => work.actressId === id);
 
 export const kdiskUrl = (term: string) =>
-  `https://www.kdisk.co.kr/index.php?mode=kdisk&s_act=ok&search_type=all&search_keyword=title&search=${encodeURIComponent(term)}`;
+  `/go/kdisk?q=${encodeURIComponent(term.normalize("NFKC").trim())}`;
 
 export const ondiskUrl = (term: string) =>
-  `https://new.ondisk.co.kr/contents?cate=ALL&search=${encodeURIComponent(term)}&search_type=title`;
+  `/go/ondisk?q=${encodeURIComponent(term.normalize("NFKC").trim())}`;
