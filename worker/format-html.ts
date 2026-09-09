@@ -121,6 +121,7 @@ export function formatHtml(source: string): string {
 export async function formatHtmlResponse(
   response: Response,
 ): Promise<Response> {
+  if ([101, 204, 205, 304].includes(response.status)) return response;
   const contentType = response.headers.get("content-type") ?? "";
   if (!contentType.toLowerCase().includes("text/html")) return response;
 

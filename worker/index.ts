@@ -60,7 +60,7 @@ const worker = {
     }
 
     const response = await handler.fetch(request, env, ctx);
-    return formatHtmlResponse(response);
+    return request.method === "GET" ? formatHtmlResponse(response) : response;
   },
 };
 
